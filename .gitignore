@@ -24,4 +24,5 @@ yarn-error.log*
 
 hamburger-app.sublime-project
 hamburger-app.sublime-workspace
-
+hamburger-app.mdw
+.vs/hamburger-app
