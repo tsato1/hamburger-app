@@ -5,15 +5,15 @@ import styles from './Input.module.css'
 const input = (props) => {
     let inputElement = null
 
-    switch (props.inputtype) {
+    switch (props.elementType) {
         case ('input'):
-            inputElement = <input className={styles.inputElement} {...props}/>
+            inputElement = <input className={styles.inputElement} {...props.elementConfig}/>
             break;
         case ('textarea'):
-            inputElement = <textarea className={styles.inputElement} {...props}/>
+            inputElement = <textarea className={styles.inputElement} {...props.elementConfig}/>
             break;
         default:
-            inputElement = <input className={styles.inputElement} {...props}/>
+            inputElement = <input className={styles.inputElement} {...props.elementConfig}/>
     }
 
     return (

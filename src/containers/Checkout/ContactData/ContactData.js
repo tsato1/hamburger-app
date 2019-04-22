@@ -9,11 +9,57 @@ import axios from '../../../axios-orders'
 
 class ContactData extends Component {
     state = {
-        name: '',
-        email: '',
-        address: {
-            street: '',
-            postal: ''
+        orderForm: {
+            name: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Your Name'
+                },
+                value: ''
+            },
+            street: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Street'
+                },
+                value: ''
+            },
+            zipcode: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'ZipCode'
+                },
+                value: ''
+            },
+            country: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Country'
+                },
+                value: ''
+            },
+            email: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'email',
+                    placeholder: 'Email'
+                },
+                value: ''
+            },
+            deliveryMethod: {
+                elementType: 'select',
+                elementConfig: {
+                    options: [
+                        {value: 'fastest', displayValue: 'Fastest'},
+                        {value: 'cheapest', displayValue: 'Cheapest'}
+                    ]
+                },
+                value: ''
+            }
         },
         loading: false
     }
@@ -25,15 +71,6 @@ class ContactData extends Component {
 		const order = {
 			ingredients: this.props.ingredients,
 			price: this.props.price, // you should be calculating the total price on the server
-			customer: {
-				name: 'max',
-				address: {
-					street: '12345 street',
-					zipcode: '1111'
-				},
-				email: 'asdf@asdf.com'
-			},
-			method: 'fastest'
 		}
 		axios.post('/orders.json', order)
 			.then(response => {
@@ -48,7 +85,7 @@ class ContactData extends Component {
     render () {
         let form = (
             <form>
-                <Input inputtype="input" type="text" name="name" placeholder="Your name"/>
+                <Input elementType="..." elementConfig="..." value=""/>
                 <Input inputtype="input" type="email" name="email" placeholder="Your email"/>
                 <Input inputtype="input" type="text" name="street" placeholder="Your street"/>
                 <Input inputtype="input" type="text" name="postal" placeholder="Your postal code"/>
